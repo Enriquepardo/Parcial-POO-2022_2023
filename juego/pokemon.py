@@ -1,5 +1,6 @@
-import random 
 
+import random 
+from juego import tipos_armas
 
 class Pokemon:
     pokemon_ids = []
@@ -151,7 +152,7 @@ class PokemonElectrico(Pokemon):
     def __str__(self):
         return ' Pokemon electrico tiene  ID {} con nombre {} usa de arma {} y tiene {} puntos de salud' .format(self.get_id(), self.get_nombre(), self.get_arma(), self.get_puntos_salud())
     
-    def atacar(self, pokemon_objetivo):
+    def atacar(self):
         if not self.is_alive():
             print(f'{self.get_nombre()} no puede atacar porque está muerto!')
             return False
