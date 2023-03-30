@@ -36,7 +36,7 @@ class Pokemon:
     def __del__(self):
         Pokemon.pokemon_ids.remove(self.__id)
 
-
+    
     def get_id(self):
         return self.__id
     
@@ -84,3 +84,79 @@ class Pokemon:
             return True
 
 
+
+# Clases hijas de Pokemon
+
+class PokemonTierra(Pokemon):
+    def __init__(self, id, nombre, arma,puntos_salud,indice_ataque,indice_defensa):
+        super().__init__(id, nombre, arma,puntos_salud,indice_ataque,indice_defensa)
+        self.indice_defensa = indice_defensa
+        if not 11 <= indice_defensa <= 20:
+            raise ValueError('El indice de defensa debe estar entre 11 y 20')
+        
+
+    def __str__(self):
+        return ' Pokemon tierra tiene  ID {} con nombre {} usa de arma {} y tiene {} puntos de salud' .format(self.get_id(), self.get_nombre(), self.get_arma(), self.get_puntos_salud())
+
+    
+
+class PokemonAgua(Pokemon):
+    def __init__(self, id, nombre, arma,puntos_salud,indice_ataque,indice_defensa):
+        super().__init__(id, nombre, arma,puntos_salud,indice_ataque,indice_defensa)
+        if not 11 <= indice_ataque <= 20:
+            raise ValueError('El indice de ataque debe estar entre 11 y 20')
+       
+    def __str__(self):
+        return ' Pokemon agua tiene  ID {} con nombre {} usa de arma {} y tiene {} puntos de salud' .format(self.get_id(), self.get_nombre(), self.get_arma(), self.get_puntos_salud())
+
+    
+
+class PokemonAire(Pokemon):
+    def __init__(self, id, nombre, arma,puntos_salud,indice_ataque,indice_defensa):
+        super().__init__(id, nombre, arma,puntos_salud,indice_ataque,indice_defensa)
+        self.indice_defensa = indice_defensa
+        if not 11 <= indice_defensa <= 20:
+            raise ValueError('El indice de defensa debe estar entre 11 y 20')
+        
+    def __str__(self):
+        return ' Pokemon aire tiene  ID {} con nombre {} usa de arma {} y tiene {} puntos de salud' .format(self.get_id(), self.get_nombre(), self.get_arma(), self.get_puntos_salud())
+    
+    def defenderse(self, puntos_daño):
+        probabilidad = random.uniform(0, 1)
+        if probabilidad < 0.5:
+            print(f'{self.get_nombre()} esquivo el ataque!')
+            return False
+        else:
+            daño_recibido = puntos_daño - self.indice_defensa
+            if daño_recibido <= 0:
+                print(f'{self.get_nombre} no ha recibido daño!')
+                return False
+            else:
+                self.get_puntos_salud -= daño_recibido
+                if self.get_puntos_salud <= 0:
+                    print(f'{self.get_nombre} is dead!')
+                else:
+                    print(f'{self.get_nombre} recibió {daño_recibido} puntos de daño y ahora tiene {self.get_puntos_salud} puntos de salud.')
+                return True
+
+
+
+class PokemonElectrico(Pokemon):
+    def __init__(self, id, nombre, arma,puntos_salud,indice_ataque,indice_defensa):
+        super().__init__(id, nombre, arma,puntos_salud,indice_ataque,indice_defensa)
+        self.indice_ataque = indice_ataque
+        if not 11 <= indice_ataque <= 20:
+            raise ValueError('El indice de defensa debe estar entre 11 y 20')
+        
+    def __str__(self):
+        return ' Pokemon electrico tiene  ID {} con nombre {} usa de arma {} y tiene {} puntos de salud' .format(self.get_id(), self.get_nombre(), self.get_arma(), self.get_puntos_salud())
+    
+    def atacar(self, pokemon_objetivo):
+        if not self.is_alive():
+            print(f'{self.get_nombre()} no puede atacar porque está muerto!')
+            return False
+        
+        if random.random() < 0.5:
+            return self.indice_ataque * 2
+        else:
+            return self.indice_ataque
