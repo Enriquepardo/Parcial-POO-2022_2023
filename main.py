@@ -1,5 +1,8 @@
-from pokemon import Pokemon
-from tipos_armas import main_2
+from pokemon import Pokemon, PokemonElectrico, PokemonAgua, PokemonTierra
+from entrenadores import *
+from tipos_armas import *
+import csv
+
 
 # EOF
 def main():
@@ -27,28 +30,16 @@ def main():
     print("Welcome to the Game.")
     print("Let's start to set the configuration of each game user. \n")
 
-    # Get configuration for Game User 1.
     
-
-    # Get configuration for Game User 2.
-
-
+    
     print("------------------------------------------------------------------")
     print("The Game starts...")
     print("------------------------------------------------------------------")
 
-    # Obtenemos una copia de la lista de pokemons de cada usuario de los archivos csv:
-    
-
-
-    
-
-
-    # Choose first pokemons
-
-
-    # Main loop.
-    main_2()
+    entrenador1 = Entrenador("Entrenador 1", 'coach_1pokemons.csv')
+    entrenador2 = Entrenador("Entrenador 2", 'coach_2_pokemons.csv')
+    # funcion main del juego
+    combat(entrenador1, entrenador2)
                     
     print("------------------------------------------------------------------")
     print("The Game has end...")

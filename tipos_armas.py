@@ -126,6 +126,3 @@ def main_2():
         print("Test FAIL. Check the method __init__().")
 
 
-# Checking whether this module is executed just itself alone.
-if __name__ == "__main__":
-    main()
