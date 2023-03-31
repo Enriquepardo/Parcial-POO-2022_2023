@@ -36,7 +36,7 @@ def main():
     print("The Game starts...")
     print("------------------------------------------------------------------")
 
-    entrenador1 = Entrenador("Entrenador 1", 'coach_1pokemons.csv')
+    entrenador1 = Entrenador("Entrenador 1", 'coach_1_pokemons.csv')
     entrenador2 = Entrenador("Entrenador 2", 'coach_2_pokemons.csv')
     # funcion main del juego
     combat(entrenador1, entrenador2)
