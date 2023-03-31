@@ -1,6 +1,7 @@
+from pokemon import Pokemon
+from tipos_armas import main_2
 
-
-
+# EOF
 def main():
     """Function main of the module.
 
@@ -44,10 +45,10 @@ def main():
 
 
     # Choose first pokemons
- 
+
 
     # Main loop.
-    
+    main_2()
                     
     print("------------------------------------------------------------------")
     print("The Game has end...")

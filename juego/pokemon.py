@@ -1,6 +1,6 @@
 
 import random 
-from juego import tipos_armas
+
 
 class Pokemon:
     pokemon_ids = []

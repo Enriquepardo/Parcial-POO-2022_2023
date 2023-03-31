@@ -60,7 +60,7 @@ class TipoArma(Enum):
     CABEZAZO = 10
 
 
-def main():
+def main_2():
     """Function main of the module.
     The function main of this module is used to test the Class TipoArma.
     Syntax
